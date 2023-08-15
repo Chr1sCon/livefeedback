@@ -1,0 +1,29 @@
+I am speaking about generative AI in front of an audience. As part of my talk, I would like to do a demo. I want to build an app to collect input from the audience. Can you help me build this app? Let's call the app "Live Feedback"
+
+Features:
+- Users should be able to post feedback to the app.
+- The app should be accessible to anyone in the audience using their mobile
+- When the feedback textfield is in focus, hitting ENTER should post the feedback to the server.
+- As the page loads, or a feedback is posted, focus should always return to the textbox
+- Users should be able to vote feedback up or down, 
+- Each user can only cast one vote per feedback. Meaning, if you hit upvote, the upvote button should be disabled. And similar with the downvote button.
+- The app should display each feedback in a list, sorted by most votes on top. If similar amount of votes, it should sort by newest on top.
+- Right under the heading, the app should display a QR-code that points to it's own URL, so users can scan it to get to the app.
+- The list should have the following columns: Number of votes, the feedback text, the buttons for up and down vote
+- The feedbacks should be invisible to all users 2 minutes after it was posted, meaning a post only lives for 2 minutes.
+- As this is a demo, I want to use a local file as the storage backend. All data should be stored in a server side json file, tracking time of post, what the feedback text was, and the number of upvotes. Posts over 2 minutes old, should still be stored in the json, it should just be invisible in the user interface. 
+- The json file should be updated as new votes are cast or feedback is posted, making sure the json is always up to date.
+- The app should use websockets against the json file to make sure changes are instantly visible to all users
+- The app should use bootstrap and have a modern, touch-friendly design and use dark mode. 
+- The H1 heading should be in the Google Font "Moirai One"
+- I want a placeholder for a favicon, pointing to favicon.png. I will upload the logo file to the server myself.
+- The app should utilise uuid for the feedbacks
+- I want the app to have this prompt, in full, in the footer.
+- I want to use node to build the app
+
+As I am doing this live in front of an audience, I would like if the output could be in as few files as possible.
+
+I want you to:
+1) Give me a list of files needed, and the commands to create all the files and folders on a mac. 
+2) Give me the commands needed to initialise my node environment.
+3) Wait for further instructions where I will ask you to give me the full output for each of the files
