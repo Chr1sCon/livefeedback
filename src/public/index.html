@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Feedback</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuidv4.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Moirai+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <h1 class="font-weight-bold">Live Feedback</h1>
+        <img id="qrCode" src="" alt="QR Code">
+        
+        <div class="mt-4 mb-4">
+            <input type="text" id="feedbackInput" class="form-control" placeholder="Enter your feedback here..." />
+        </div>
+
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Votes</th>
+                    <th scope="col">Feedback</th>
+                    <th scope="col">Vote</th>
+                </tr>
+            </thead>
+            <tbody id="feedbackList">
+                <!-- Feedbacks will be rendered here dynamically from script.js -->
+            </tbody>
+        </table>
+    </div>
+    <div class="col-xs-12" style="height:200px;"></div>
+
+    <footer class="container mt-5">
+		<h2>ChatGPT Prompt:</h2>
+		<p>I am speaking about generative AI in front of an audience. As part of my talk, I would like to do a demo. I want to build an app to collect input from the audience.</p>
+		<strong>Features:</strong>
+		<ul>
+			<li>Users should be able to post feedback to the app.</li>
+			<li>The app should be accessible to anyone in the audience using their mobile.</li>
+			<li>When the feedback textfield is in focus, hitting ENTER should post the feedback to the server.</li>
+			<li>As the page loads or a feedback is posted, focus should always return to the textbox.</li>
+			<li>Users should be able to vote feedback up or down.</li>
+			<li>Each user can only cast one vote per feedback. Meaning, if you hit upvote, the upvote button should be disabled. And similar with the downvote button.</li>
+			<li>The app should display each feedback in a list, sorted by most votes on top. If similar amount of votes, it should sort by newest on top.</li>
+			<li>Right under the heading, the app should display a QR-code that points to its own URL, so users can scan it to get to the app.</li>
+			<li>The list should have the following columns: Number of votes, the feedback text, the buttons for up and down vote.</li>
+			<li>The feedbacks should be invisible to all users 2 minutes after it was posted, meaning a post only lives for 2 minutes.</li>
+			<li>As this is a demo, I want to use a local file as the storage backend. All data should be stored in a server-side JSON file, tracking the time of post, what the feedback text was, and the number of upvotes. Posts over 2 minutes old should still be stored in the JSON; it should just be invisible in the user interface.</li>
+			<li>The JSON file should be updated as new votes are cast or feedback is posted, making sure the JSON is always up to date.</li>
+			<li>The app should use websockets against the JSON file to make sure changes are instantly visible to all users.</li>
+			<li>The app should use Bootstrap and have a modern, touch-friendly design and use dark mode.</li>
+			<li>The app should utilize UUID for the feedbacks.</li>
+			<li>The app should have this prompt, in full, in the footer.</li>
+			<li>I want to use Node.js to build the app.</li>
+		</ul>
+		<strong>I want you to:</strong>
+		<ol>
+			<li>Give me a list of files needed, and the commands to create all the files and folders on a mac. </li>
+			<li>Give me the commands needed to initialise my node environment.</li>
+			<li>Wait for further instructions where I will ask you to give me the full output for each of the files</li>
+		</ol>
+	</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
