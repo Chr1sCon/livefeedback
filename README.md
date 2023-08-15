@@ -27,16 +27,21 @@ The Live Feedback App is a web application designed to collect feedback from the
 ```bash
 git clone https://github.com/your-username/live-feedback-app.git
 cd live-feedback-app
-Install the required dependencies:
-bash
-Copy code
+```
+
+
+2. Install the required dependencies:
+
+```bash
 npm install
-Start the server:
-bash
-Copy code
+```
+
+3. Start the server:
+```bash
 node server.js
 ```
-Access the app in your web browser at http://localhost:3000.
+
+4. Access the app in your web browser at http://localhost:3000.
 
 ## Technologies Used
 
