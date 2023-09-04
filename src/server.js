@@ -1,6 +1,6 @@
 const express = require('express');
 const { Server } = require('ws');
-const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const QRCode = require('qrcode');
@@ -116,9 +116,16 @@ function addFeedback(text, userId) {
     wss.clients.forEach(client => sendFeedbacks(client));
 }
 
-server.listen(3000, () => {
-    console.log('Server running on http://localhost:3000/');
-});
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/feedback.conradi.cloud/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/feedback.conradi.cloud/fullchain.pem', 'utf8');
+const credentials = { key: privateKey, cert: certificate };
+
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(80);
+//server.listen(3000, () => {
+//    console.log('Server running on http://localhost:3000/');
+//});
 
 // Check and remove old feedbacks every minute
 setInterval(() => {
