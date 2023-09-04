@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 const QRCode = require('qrcode');
 
 const app = express();
-const server = http.createServer(app);
+const server = https.createServer(app);
 const wss = new Server({ server });
 const FEEDBACKS_FILE = './data/feedbacks.json';
 
