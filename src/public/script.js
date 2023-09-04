@@ -1,5 +1,6 @@
 // Establish WebSocket connection
-const socket = new WebSocket('ws://localhost:3000'); 
+//const socket = new WebSocket('ws://localhost:3000'); 
+const socket = new WebSocket('ws://feedback.conradi.cloud'); 
 
 // DOM references
 const feedbackInput = document.getElementById('feedbackInput');

@@ -28,17 +28,6 @@ app.get('/generate-qr', async (req, res) => {
 wss.on('connection', ws => {
     sendFeedbacks(ws);
     
-    /* ws.on('message', message => {
-        const data = JSON.parse(message);
-        switch (data.type) {
-            case 'newFeedback':
-                addFeedback(data.text);
-                break;
-            case 'vote':
-                voteFeedback(data.id, data.voteType);
-                break;
-        }
-    }); */
 	ws.on('message', message => {
 		const data = JSON.parse(message);
 		switch (data.type) {
@@ -88,20 +77,6 @@ function addFeedback(text) {
     wss.clients.forEach(client => sendFeedbacks(client));
 }
 
-// Vote on a feedback
-/* function voteFeedback(id, voteType) {
-    const feedbacks = loadFeedbacks();
-    const feedback = feedbacks.find(f => f.id === id);
-    if (feedback) {
-        if (voteType === 'upvote') {
-            feedback.votes++;
-        } else if (voteType === 'downvote') {
-            feedback.votes--;
-        }
-        saveFeedbacks(feedbacks);
-        wss.clients.forEach(client => sendFeedbacks(client));
-    }
-} */
 function voteFeedback(id, voteType, userId) {
 	console.log(`Vote received for feedback ${id} by user ${userId} with voteType ${voteType}`);
     const feedbacks = loadFeedbacks();
