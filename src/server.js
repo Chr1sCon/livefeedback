@@ -122,7 +122,11 @@ const credentials = { key: privateKey, cert: certificate };
 
 const httpsServer = https.createServer(credentials, app);
 
-httpsServer.listen(80);
+httpsServer.listen(443, () => {
+    console.log('Server running on https://feedback.conradi.cloud/');
+});
+
+//httpsServer.listen(80);
 //server.listen(3000, () => {
 //    console.log('Server running on http://localhost:3000/');
 //});
